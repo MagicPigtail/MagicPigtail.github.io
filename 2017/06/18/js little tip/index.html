@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js little tip">
 <meta property="og:url" content="http://yoursite.com/2017/06/18/js little tip/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
 <meta property="og:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T09:37:40.307Z">
+<meta property="og:updated_time" content="2018-08-14T08:51:50.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js little tip">
 <meta name="twitter:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
@@ -186,6 +187,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -358,6 +369,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
 
       
       
@@ -367,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/22/js模块/" rel="next" title="js模块">
-                <i class="fa fa-chevron-left"></i> js模块
+              <a href="/2017/04/28/重排和重绘/" rel="next" title="重排和重绘">
+                <i class="fa fa-chevron-left"></i> 重排和重绘
               </a>
             
           </div>
@@ -460,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,6 +485,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>

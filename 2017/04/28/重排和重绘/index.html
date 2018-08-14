@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="安全性," />
+  <meta name="keywords" content="前端优化," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
-<meta name="keywords" content="安全性">
+<meta name="description" content="重排浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM树和渲染树），DOM树表示页面结构，渲染树表示DOM节点如何显示。重排是DOM元素的几何属性变化，DOM树的结构变化，渲染树需要重新计算。 重绘重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，">
+<meta name="keywords" content="前端优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="身份认证">
-<meta property="og:url" content="http://yoursite.com/2017/12/14/身份认证/index.html">
+<meta property="og:title" content="重排和重绘">
+<meta property="og:url" content="http://yoursite.com/2017/04/28/重排和重绘/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
-<meta property="og:description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
+<meta property="og:description" content="重排浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM树和渲染树），DOM树表示页面结构，渲染树表示DOM节点如何显示。重排是DOM元素的几何属性变化，DOM树的结构变化，渲染树需要重新计算。 重绘重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T08:52:14.359Z">
+<meta property="og:updated_time" content="2018-08-14T08:53:11.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="身份认证">
-<meta name="twitter:description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
+<meta name="twitter:title" content="重排和重绘">
+<meta name="twitter:description" content="重排浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM树和渲染树），DOM树表示页面结构，渲染树表示DOM节点如何显示。重排是DOM元素的几何属性变化，DOM树的结构变化，渲染树需要重新计算。 重绘重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/14/身份认证/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/28/重排和重绘/"/>
 
 
 
 
 
-  <title>身份认证 | yangz's world</title>
+  <title>重排和重绘 | yangz's world</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/身份认证/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/重排和重绘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="神奇的小辫子">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">身份认证</h1>
+          <h1 class="post-title" itemprop="name headline">重排和重绘</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T13:07:32+08:00">
-                2017-12-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T15:43:14+08:00">
+                2017-04-28
               </time>
             
 
@@ -310,43 +310,31 @@
       
 
       
-        <p>常见的身份认证方案有三种：</p>
-<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><h5 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h5><p>每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。</p>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ol>
-<li>增大服务端内存开销；</li>
-<li>认证记录只存在于一台服务器上，限制了做负载均衡的能力；</li>
-<li>如果cookie被截获很容易受到跨站请求伪造的攻击。</li>
+        <h2 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h2><p>浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM树和渲染树），DOM树表示页面结构，渲染树表示DOM节点如何显示。重排是DOM元素的几何属性变化，DOM树的结构变化，渲染树需要重新计算。</p>
+<h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。由于浏览器的流布局，对渲染树的计算通常只需要遍历一次就可以完成。但table及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用table布局页面的原因之一。</p>
+<h2 id="重绘和重排的关系"><a href="#重绘和重排的关系" class="headerlink" title="重绘和重排的关系"></a>重绘和重排的关系</h2><p>重绘不会引起重排，但重排一定会引起重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。</p>
+<h2 id="什么情况下会触发重排？"><a href="#什么情况下会触发重排？" class="headerlink" title="什么情况下会触发重排？"></a>什么情况下会触发重排？</h2><ol>
+<li>页面渲染初始化时；（这个无法避免）</li>
+<li>浏览器窗口改变尺寸；</li>
+<li>元素尺寸改变时；</li>
+<li>元素位置改变时；</li>
+<li>元素内容改变时；</li>
+<li>添加或删除可见的DOM 元素时。</li>
 </ol>
-<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><h5 id="实现方式-1"><a href="#实现方式-1" class="headerlink" title="实现方式"></a>实现方式</h5><p>用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，然后通过base64编码后发给客户端储存，之后客户端再次访问时会附带token信息（一般放在请求头里），服务端收到后用同样的算法和密钥验证token。</p>
-<h5 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h5><ol>
-<li><p>userId<br>用户唯一标识符</p>
-</li>
-<li><p>时间戳<br>时间唯一标识符</p>
-</li>
-<li><p>sign<br>签名，token的前几位以哈希算法压缩成的一定长度的十六进制字符串。为防止token泄露</p>
-</li>
+<h2 id="重排优化有如下五种方法"><a href="#重排优化有如下五种方法" class="headerlink" title="重排优化有如下五种方法"></a>重排优化有如下五种方法</h2><ol>
+<li>将多次改变样式属性的操作合并成一次操作，减少DOM访问。</li>
+<li>如果要批量添加DOM，可以先让元素脱离文档流，操作完后再带入文档流，这样只会触发一次重排。（fragment元素的应用）</li>
+<li>将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。</li>
+<li>由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发两次重排。</li>
+<li>在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的html片段，再一次性添加到文档中去，而不是循环添加每一行。</li>
 </ol>
-<h3 id="JWT-json-web-token"><a href="#JWT-json-web-token" class="headerlink" title="JWT(json web token)"></a>JWT(json web token)</h3><h5 id="实现方式-2"><a href="#实现方式-2" class="headerlink" title="实现方式"></a>实现方式</h5><p>在token的基础上用json的形式传递信息，并有非对称加密进行前后端校验。</p>
-<h5 id="组成部分-1"><a href="#组成部分-1" class="headerlink" title="组成部分"></a>组成部分</h5><ol>
-<li><p>header<br>alg – 加密算法<br>type – 类型（例：JWT）</p>
-</li>
-<li><p>payload<br>nbf – 起效时间<br>exp – 过期时间<br>iat – 签发时间</p>
-</li>
-<li><p>signature<br>base64UrlEncode(header) – 将header进行base64编码<br>base64UrlEncode(payload) – 将payload进行base64编码<br>your-secret – 私钥</p>
-</li>
+<h2 id="CSS加载"><a href="#CSS加载" class="headerlink" title="CSS加载"></a>CSS加载</h2><ol>
+<li>CSS（外链或内联）会阻塞 整个 DOM的渲染（Rendering），然而DOM解析（Parsing）会正常进行</li>
+<li>很多浏览器中，CSS会延迟脚本执行和 DOMContentLoaded 事件</li>
+<li>JS（外链或内联）会阻塞 后续 DOM的解析（Parsing），后续DOM的渲染（Rendering）也将被阻塞</li>
+<li>JS前的DOM可以正常解析（Parsing）和渲染（Rendering）</li>
 </ol>
-<h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><ol>
-<li><p>初次登录：用户初次登录，输入用户名密码</p>
-</li>
-<li><p>密码验证：服务器从数据库取出用户名和密码进行验证</p>
-</li>
-<li><p>生成JWT：服务器端验证通过，根据从数据库返回的信息，以及预设规则，生成JWT</p>
-</li>
-<li><p>返还JWT：服务器的将token放在cookie中将JWT返还</p>
-</li>
-<li><p>带JWT的请求：以后客户端发起请求，带上cookie中的token信息。</p>
-</li>
-</ol>
+<h3 id="CSS阻塞DOM渲染"><a href="#CSS阻塞DOM渲染" class="headerlink" title="CSS阻塞DOM渲染"></a>CSS阻塞DOM渲染</h3><p>无论是外链CSS还是内联CSS都会阻塞DOM渲染（Rendering），然而DOM解析（Parsing）会正常进行。 这意味着在CSS下载并解析结束之前，它后面的HTML都不会显示。 这也是为什么我们把样式放在HTML内容之前，以防止被呈现内容发生样式跳动。 当然代价就是显示延迟，所以性能攸关的站点都会内联所有CSS。</p>
 
       
     </div>
@@ -364,7 +352,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/安全性/" rel="tag"># 安全性</a>
+            <a href="/tags/前端优化/" rel="tag"># 前端优化</a>
           
         </div>
       
@@ -377,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/01/节流和去抖/" rel="next" title="节流和去抖">
-                <i class="fa fa-chevron-left"></i> 节流和去抖
+              <a href="/2017/04/22/js模块/" rel="next" title="js模块">
+                <i class="fa fa-chevron-left"></i> js模块
               </a>
             
           </div>
@@ -387,8 +375,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/13/react-note/" rel="prev" title="react-note">
-                react-note <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/18/js little tip/" rel="prev" title="js little tip">
+                js little tip <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,7 +504,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">1.0.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">2.</span> <span class="nav-text">token</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组成部分"><span class="nav-number">2.0.2.</span> <span class="nav-text">组成部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT-json-web-token"><span class="nav-number">3.</span> <span class="nav-text">JWT(json web token)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组成部分-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">组成部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理"><span class="nav-number">3.0.3.</span> <span class="nav-text">工作原理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重排"><span class="nav-number">1.</span> <span class="nav-text">重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘"><span class="nav-number">2.</span> <span class="nav-text">重绘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘和重排的关系"><span class="nav-number">3.</span> <span class="nav-text">重绘和重排的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下会触发重排？"><span class="nav-number">4.</span> <span class="nav-text">什么情况下会触发重排？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排优化有如下五种方法"><span class="nav-number">5.</span> <span class="nav-text">重排优化有如下五种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS加载"><span class="nav-number">6.</span> <span class="nav-text">CSS加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS阻塞DOM渲染"><span class="nav-number">6.1.</span> <span class="nav-text">CSS阻塞DOM渲染</span></a></li></ol></li></ol></div>
             
 
           </div>
