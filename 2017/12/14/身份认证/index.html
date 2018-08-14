@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta name="description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react填坑记">
-<meta property="og:url" content="http://yoursite.com/2018/08/14/react填坑记/index.html">
+<meta property="og:title" content="身份认证">
+<meta property="og:url" content="http://yoursite.com/2017/12/14/身份认证/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
-<meta property="og:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta property="og:description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T03:43:56.667Z">
+<meta property="og:updated_time" content="2018-08-14T05:29:22.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react填坑记">
-<meta name="twitter:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta name="twitter:title" content="身份认证">
+<meta name="twitter:description" content="常见的身份认证方案有三种： session实现方式每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。 缺点 增大服务端内存开销； 认证记录只存在于一台服务器上，限制了做负载均衡的能力； 如果cookie被截获很容易受到跨站请求伪造的攻击。  token实现方式用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/14/react填坑记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/14/身份认证/"/>
 
 
 
 
 
-  <title>react填坑记 | yangz's world</title>
+  <title>身份认证 | yangz's world</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/react填坑记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/身份认证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="神奇的小辫子">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react填坑记</h1>
+          <h1 class="post-title" itemprop="name headline">身份认证</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T09:54:20+08:00">
-                2018-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T13:07:32+08:00">
+                2017-12-14
               </time>
             
 
@@ -299,14 +299,43 @@
       
 
       
-        <p>这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。</p>
-<h3 id="react检测不到数据改变"><a href="#react检测不到数据改变" class="headerlink" title="react检测不到数据改变"></a>react检测不到数据改变</h3><p>react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对真实dom的渲染只限于依赖数据改变的地方。但在有些情况下react检测不到数据的改变。</p>
-<p>例如当一个试图依赖的数据是一个存在于JSON对象中<strong>嵌套较深</strong>的一个属性时，而且这个数据是个<strong>数组</strong>，当我们对这个数组进行<strong>浅拷贝</strong>(如push,shift等方法)改变它的值时，页面不会触发重新渲染，原因是<strong>该Array对象是一个引用类型，浅拷贝不会改变其指针，当嵌套较深时指针不变react默认其值未发生变化</strong>，若想要触发重新渲染，需要对其值进行深拷贝，调用slice,concat方法或重新新建一个对象将原始对象进行赋值传递属性给它即可。</p>
-<h3 id="reducers返回的newState必须用扩展符"><a href="#reducers返回的newState必须用扩展符" class="headerlink" title="reducers返回的newState必须用扩展符"></a>reducers返回的newState必须用扩展符</h3><p>reducers中的reducer函数都是纯函数，所以每次都要重新声明一个对象newState将老的state中属性拷贝过来，虽然state和newState都是一个json对象，但返回时不能直接<code>return newState</code>，否则会报错，必须要用扩展符<code>...</code>将其转化一遍再用大括号<code>{}</code>包裹起来：<code>return {...newState}</code></p>
-<h3 id="运用箭头函数"><a href="#运用箭头函数" class="headerlink" title="运用箭头函数"></a>运用箭头函数</h3><p>react的每一个组件都是一个类，而<code>render</code>出来的html需要绑定该类中的一些方法，这些方法有时候会用到全局<code>store</code>中的值或者要<code>dispatch</code>一个<code>action</code>，这个时候必须要拿到当前对象即<code>this</code>，如果直接用函数声明的方法，则必须要再<code>constructor</code>里将每个函数用bind方法改变作用域，但如果用箭头函数的函数表达式方法声明，因为箭头函数的<code>this</code>始终是函数定义时绑定，所以可以避免在<code>constructor</code>里依次<code>bind</code>的冗余操作。</p>
-<p>这里的箭头函数的this在定义时绑定指的是箭头函数的this永远指向父级的上下文。而普通函数的this指向的时调用它的对象。</p>
-<h3 id="setState-是异步的"><a href="#setState-是异步的" class="headerlink" title="setState()是异步的"></a>setState()是异步的</h3><p>this.setState()会调用render方法，但并不会立即改变state的值，state是在render方法中赋值的。所以执行this.setState()后立即获取state的值是不变的。同样的直接赋值state并不会触发更新，因为没有调用render函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;value: this.state.value + 1&#125;)</span><br><span class="line">console.log(this.state.value)</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">    this.setState(&#123;value: this.state.value + 1&#125;)</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">&#125;, 10);</span><br><span class="line">render()&#123;</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原始value为1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-----&gt; 1</span><br><span class="line">-----&gt; 2</span><br><span class="line">-----&gt; 2</span><br><span class="line">-----&gt; 3</span><br><span class="line">-----&gt; 3</span><br><span class="line">执行顺序为2-&gt;1-&gt;9-&gt;4-&gt;5-&gt;9-&gt;6</span><br><span class="line">第一个loop：2-&gt;1-&gt;9</span><br><span class="line">第二个loop：4-&gt;5-&gt;9-&gt;6</span><br></pre></td></tr></table></figure></p>
+        <p>常见的身份认证方案有三种：</p>
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><h5 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h5><p>每次登陆后由服务端生成一个sessionId后以cookie的方法发送给客户端储存起来，同时在服务端也存储。</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ol>
+<li>增大服务端内存开销；</li>
+<li>认证记录只存在于一台服务器上，限制了做负载均衡的能力；</li>
+<li>如果cookie被截获很容易受到跨站请求伪造的攻击。</li>
+</ol>
+<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><h5 id="实现方式-1"><a href="#实现方式-1" class="headerlink" title="实现方式"></a>实现方式</h5><p>用户登陆服务器后，服务器通过userId、时间戳等信息通过算法加密生成token，然后通过base64编码后发给客户端储存，之后客户端再次访问时会附带token信息（一般放在请求头里），服务端收到后用同样的算法和密钥验证token。</p>
+<h5 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h5><ol>
+<li><p>userId<br>用户唯一标识符</p>
+</li>
+<li><p>时间戳<br>时间唯一标识符</p>
+</li>
+<li><p>sign<br>签名，token的前几位以哈希算法压缩成的一定长度的十六进制字符串。为防止token泄露</p>
+</li>
+</ol>
+<h3 id="JWT-json-web-token"><a href="#JWT-json-web-token" class="headerlink" title="JWT(json web token)"></a>JWT(json web token)</h3><h5 id="实现方式-2"><a href="#实现方式-2" class="headerlink" title="实现方式"></a>实现方式</h5><p>在token的基础上用json的形式传递信息，并有非对称加密进行前后端校验。</p>
+<h5 id="组成部分-1"><a href="#组成部分-1" class="headerlink" title="组成部分"></a>组成部分</h5><ol>
+<li><p>header<br>alg – 加密算法<br>type – 类型（例：JWT）</p>
+</li>
+<li><p>payload<br>nbf – 起效时间<br>exp – 过期时间<br>iat – 签发时间</p>
+</li>
+<li><p>signature<br>base64UrlEncode(header) – 将header进行base64编码<br>base64UrlEncode(payload) – 将payload进行base64编码<br>your-secret – 私钥</p>
+</li>
+</ol>
+<h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><ol>
+<li><p>初次登录：用户初次登录，输入用户名密码</p>
+</li>
+<li><p>密码验证：服务器从数据库取出用户名和密码进行验证</p>
+</li>
+<li><p>生成JWT：服务器端验证通过，根据从数据库返回的信息，以及预设规则，生成JWT</p>
+</li>
+<li><p>返还JWT：服务器的将token放在cookie中将JWT返还</p>
+</li>
+<li><p>带JWT的请求：以后客户端发起请求，带上cookie中的token信息。</p>
+</li>
+</ol>
 
       
     </div>
@@ -331,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/react-note/" rel="next" title="react-note">
-                <i class="fa fa-chevron-left"></i> react-note
+              <a href="/2017/11/01/节流和去抖/" rel="next" title="节流和去抖">
+                <i class="fa fa-chevron-left"></i> 节流和去抖
               </a>
             
           </div>
@@ -340,6 +369,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/13/react-note/" rel="prev" title="react-note">
+                react-note <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -457,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#react检测不到数据改变"><span class="nav-number">1.</span> <span class="nav-text">react检测不到数据改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducers返回的newState必须用扩展符"><span class="nav-number">2.</span> <span class="nav-text">reducers返回的newState必须用扩展符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用箭头函数"><span class="nav-number">3.</span> <span class="nav-text">运用箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState-是异步的"><span class="nav-number">4.</span> <span class="nav-text">setState()是异步的</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">1.0.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">2.</span> <span class="nav-text">token</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组成部分"><span class="nav-number">2.0.2.</span> <span class="nav-text">组成部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT-json-web-token"><span class="nav-number">3.</span> <span class="nav-text">JWT(json web token)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方式-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组成部分-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">组成部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理"><span class="nav-number">3.0.3.</span> <span class="nav-text">工作原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
