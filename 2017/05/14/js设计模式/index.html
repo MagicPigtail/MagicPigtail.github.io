@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="节流一般都伴随着客户端 DOM 的事件监听。举个例子，实现一个原生的拖拽功能（不能用 H5 Drag&amp;amp;Drop API），需要一路监听 mousemove 事件，在回调中获取元素当前位置，然后重置 dom 的位置（样式改变）。如果我们不加以控制，每移动一定像素而触发的回调数量是会非常惊人的，回调中又伴随着 DOM 操作，继而引发浏览器的重排与重绘，性能差的浏览器可能就会直接假死，这样的用户">
-<meta name="keywords" content="js">
+<meta name="description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
 <meta property="og:type" content="article">
-<meta property="og:title" content="节流和去抖">
-<meta property="og:url" content="http://yoursite.com/2017/11/01/节流和去抖/index.html">
+<meta property="og:title" content="js设计模式">
+<meta property="og:url" content="http://yoursite.com/2017/05/14/js设计模式/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
-<meta property="og:description" content="节流一般都伴随着客户端 DOM 的事件监听。举个例子，实现一个原生的拖拽功能（不能用 H5 Drag&amp;amp;Drop API），需要一路监听 mousemove 事件，在回调中获取元素当前位置，然后重置 dom 的位置（样式改变）。如果我们不加以控制，每移动一定像素而触发的回调数量是会非常惊人的，回调中又伴随着 DOM 操作，继而引发浏览器的重排与重绘，性能差的浏览器可能就会直接假死，这样的用户">
+<meta property="og:description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T08:51:58.276Z">
+<meta property="og:updated_time" content="2018-08-14T09:46:11.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="节流和去抖">
-<meta name="twitter:description" content="节流一般都伴随着客户端 DOM 的事件监听。举个例子，实现一个原生的拖拽功能（不能用 H5 Drag&amp;amp;Drop API），需要一路监听 mousemove 事件，在回调中获取元素当前位置，然后重置 dom 的位置（样式改变）。如果我们不加以控制，每移动一定像素而触发的回调数量是会非常惊人的，回调中又伴随着 DOM 操作，继而引发浏览器的重排与重绘，性能差的浏览器可能就会直接假死，这样的用户">
+<meta name="twitter:title" content="js设计模式">
+<meta name="twitter:description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/01/节流和去抖/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/14/js设计模式/"/>
 
 
 
 
 
-  <title>节流和去抖 | yangz's world</title>
+  <title>js设计模式 | yangz's world</title>
   
 
 
@@ -243,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/节流和去抖/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/js设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="神奇的小辫子">
@@ -260,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">节流和去抖</h1>
+          <h1 class="post-title" itemprop="name headline">js设计模式</h1>
         
 
         <div class="post-meta">
@@ -272,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T17:41:38+08:00">
-                2017-11-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T17:31:38+08:00">
+                2017-05-14
               </time>
             
 
@@ -310,13 +309,30 @@
       
 
       
-        <h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>一般都伴随着客户端 DOM 的事件监听。举个例子，实现一个原生的拖拽功能（不能用 H5 Drag&amp;Drop API），需要一路监听 mousemove 事件，在回调中获取元素当前位置，然后重置 dom 的位置（样式改变）。如果我们不加以控制，每移动一定像素而触发的回调数量是会非常惊人的，回调中又伴随着 DOM 操作，继而引发浏览器的重排与重绘，性能差的浏览器可能就会直接假死，这样的用户体验是非常糟糕的。<strong>我们需要做的是降低触发回调的频率</strong>，比如让它 500ms 触发一次，或者 200ms，甚至 100ms，这个阈值不能太大，太大了拖拽就会失真，<strong>也不能太小，太小了低版本浏览器可能就会假死</strong>，这样的解决方案就是函数节流，英文名字叫<strong>throttle</strong>。函数节流的核心是，<strong>让一个函数不要执行得太频繁，减少一些过快的调用来节流。</strong></p>
-<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>一般有两种实现方式，一种是清定时器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn, delay) &#123;</span><br><span class="line">  var timer = null;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    clearTimeout(timer);</span><br><span class="line">    timer = setTimeout(function() &#123;</span><br><span class="line">      fn();</span><br><span class="line">    &#125;, delay);</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>另一种是比较两次触发时的时间间隔<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function throttle(func, wait) &#123;</span><br><span class="line">    let lastTime = null　　　　 // 为了避免每次调用lastTime都被清空，利用js的闭包返回一个function确保不生命全局变量也可以</span><br><span class="line">    return function() &#123;</span><br><span class="line">        let now = new Date()</span><br><span class="line">            // 如果上次执行的时间和这次触发的时间大于一个执行周期，则执行</span><br><span class="line">        if (now - lastTime - wait &gt; 0) &#123;</span><br><span class="line">            func()</span><br><span class="line">            lastTime = now</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="去抖"><a href="#去抖" class="headerlink" title="去抖"></a>去抖</h3><p>思考这样一个场景，对于浏览器窗口，每做一次<code>resize</code>操作，发送一个请求，很显然，我们需要监听<code>resize</code>事件，但是和<code>mousemove</code>一样，每缩小（或者放大）一次浏览器，实际上会触发 N 多次的<code>resize</code>事件，对于这种一定时间段的连续的函数调用，只让其执行一次的场景，我们就要用到函数去抖。</p>
-<h4 id="实现方式-1"><a href="#实现方式-1" class="headerlink" title="实现方式"></a>实现方式</h4><p>当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, wait) &#123;   </span><br><span class="line">    var timeout = null;   </span><br><span class="line">    return function() &#123;       </span><br><span class="line">        if(timeout !== null) clearTimeout(timeout);</span><br><span class="line">        timeout = setTimeout(fn, wait);   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 处理函数</span><br><span class="line">function handle() &#123;   </span><br><span class="line">    console.log(Math.random());</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&apos;resize&apos;, debounce(handle, 1000));</span><br></pre></td></tr></table></figure>
-<p>需要注意的一点：<strong>函数的节流和函数的去抖都是通过减少实际逻辑处理过程的执行来提高事件处理函数运行性能的手段，并没有实质上减少事件的触发次数。</strong></p>
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:</p>
+<ol>
+<li>某个类只能有一个实例；</li>
+<li>它必须自行创建这个实例；</li>
+<li>它必须自行向整个系统提供这个实例。<br>实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var singleton = (function()&#123;</span><br><span class="line">    var instance;</span><br><span class="line">    function init()&#123;</span><br><span class="line">      function privateMethod()&#123;</span><br><span class="line">        console.log(&apos;privateMethod&apos;);</span><br><span class="line">      &#125;</span><br><span class="line">      var privateVar = &apos;privateVar&apos;;</span><br><span class="line">      return &#123;</span><br><span class="line">        publicMethod : function() &#123;</span><br><span class="line">          console.log(&apos;publicMethod&apos;);</span><br><span class="line">        &#125;,</span><br><span class="line">        publicVar : &apos;publicVar&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        getInstance : function () &#123;</span><br><span class="line">          if(!instance)&#123;</span><br><span class="line">            instance = init();</span><br><span class="line">          &#125;</span><br><span class="line">          return instance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">var n1 = singleton.getInstance();</span><br><span class="line">var n2 = singleton.getInstance();</span><br><span class="line">console.log(n1 === n2)        //true</span><br></pre></td></tr></table></figure>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式即定义一系列的算法，把它们一个一个封装起来。将算法的使用与算法的实现分离开来。<br>javascript的策略模式很简单，把算法直接定义成函数即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">!(function () &#123;</span><br><span class="line">    //定义算法方法</span><br><span class="line">    var strategies = &#123;</span><br><span class="line">        &quot;S&quot;:function(salary)&#123;</span><br><span class="line">          return salary * 4;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;A&quot;:function(salary)&#123;</span><br><span class="line">            return salary * 3;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;B&quot;:function(salary)&#123;</span><br><span class="line">            return salary * 2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    //执行算法</span><br><span class="line">    var calculateBouns = function(level,salary)&#123;</span><br><span class="line">      return strategies[level](salary);</span><br><span class="line">    &#125;;</span><br><span class="line">    console.log(calculateBouns(&apos;S&apos;,2000));</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<h4 id="策略模式的优点"><a href="#策略模式的优点" class="headerlink" title="策略模式的优点"></a>策略模式的优点</h4><ol>
+<li>有效的避免许多重复的复制粘贴作业。</li>
+<li>开闭原则的完美支持，算法完全独立易于切换、理解、拓展。</li>
+<li>算法复用性强</li>
+<li><p>使用组合和委托让Validator类拥有执行算法的能力，也是继承的一种轻便替代方式</p>
+<h4 id="策略模式的缺点"><a href="#策略模式的缺点" class="headerlink" title="策略模式的缺点"></a>策略模式的缺点</h4></li>
+<li><p>增加许多策略类或策略对象。</p>
+</li>
+<li>将strategy暴露给客户所有实现</li>
+</ol>
+<h3 id="策略模式使用场景"><a href="#策略模式使用场景" class="headerlink" title="策略模式使用场景"></a>策略模式使用场景</h3><ol>
+<li>针对同一类型问题的多种处理方式，仅仅是具体行为有差别时； </li>
+<li>需要安全地封装多种同一类型的操作时； </li>
+<li>出现同一抽象类有多个子类，而又需要使用 if-else 或者 switch-case 来选择具体子类时。</li>
+</ol>
 
       
     </div>
@@ -332,12 +348,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/js/" rel="tag"># js</a>
-          
-        </div>
-      
 
       
       
@@ -347,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/30/vue-note/" rel="next" title="vue-note">
-                <i class="fa fa-chevron-left"></i> vue-note
+              <a href="/2017/04/28/重排和重绘/" rel="next" title="重排和重绘">
+                <i class="fa fa-chevron-left"></i> 重排和重绘
               </a>
             
           </div>
@@ -357,8 +367,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/14/身份认证/" rel="prev" title="身份认证">
-                身份认证 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/18/js little tip/" rel="prev" title="js little tip">
+                js little tip <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -486,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#节流"><span class="nav-number">1.</span> <span class="nav-text">节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.</span> <span class="nav-text">实现方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去抖"><span class="nav-number">2.</span> <span class="nav-text">去抖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式-1"><span class="nav-number">2.1.</span> <span class="nav-text">实现方式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式的优点"><span class="nav-number">2.0.1.</span> <span class="nav-text">策略模式的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式的缺点"><span class="nav-number">2.0.2.</span> <span class="nav-text">策略模式的缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式使用场景"><span class="nav-number">2.1.</span> <span class="nav-text">策略模式使用场景</span></a></li></ol></li></ol></div>
             
 
           </div>
