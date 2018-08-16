@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="yangz&#39;s world">
 <meta property="og:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T08:51:50.601Z">
+<meta property="og:updated_time" content="2018-08-15T02:10:27.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js little tip">
 <meta name="twitter:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
@@ -326,18 +326,41 @@
 </ol>
 <p>每次主线程的同步任务执行完毕后都会在任务队列中查找状态为等待执行的回调函数，因此这种运行机制被称为Event<br>loop（事件循环）。</p>
 <p>setTimeout和setInterval都可以将定时器的方式事件添加到任务队列，两者区别在于前者是一次性执行，而后者反复执行。</p>
-<p>Nodejs的Event loop</p>
-<p>Nodejs形成event loop的环境依赖于</p>
+<blockquote>
+<p>宏任务（task）</p>
+</blockquote>
+<p>我对宏任务的理解即一个正常的event loop，不包括异步事件添加到队列中的任务。<br>宏任务代表：script(整体代码),setTimeout,setImmediate。(不包括setTimeout中的异步事件)</p>
+<blockquote>
+<p>微任务（Microtasks）</p>
+</blockquote>
+<p>宏任务执行时，产生的新的小任务，比如异步，此类任务称之为微任务，一般在当前宏任务执行完之后“插队”执行。<br>微任务代表：process.nextTick, Promise。<br><strong>虽然process.nextTick和Promise都是微任务，但是他们的执行的先后顺序是不一样的。无论谁的代码先执行，等到了poll阶段，两者都是可运行的状态时，都是nextTick先于Promise执行。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    console.log(&apos;定时器开始啦&apos;)</span><br><span class="line">&#125;,0);</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">    console.log(&apos;马上执行for循环啦&apos;);</span><br><span class="line">    for(var i = 0; i &lt; 10000000; i++)&#123;</span><br><span class="line">        i == 9999999 &amp;&amp; resolve();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">    console.log(&apos;执行then函数啦&apos;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;代码执行结束&apos;);</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">马上执行for循环啦</span><br><span class="line">代码执行结束</span><br><span class="line">执行then函数啦</span><br><span class="line">定时器开始啦</span><br></pre></td></tr></table></figure></p>
+<h3 id="Nodejs的Event-loop"><a href="#Nodejs的Event-loop" class="headerlink" title="Nodejs的Event loop"></a>Nodejs的Event loop</h3><p>Nodejs形成event loop的环境依赖于</p>
 <ol>
 <li><p>V8对js的解析</p>
 </li>
 <li><p>调用node API</p>
 </li>
-<li><p>libuv库执行node API，将worker<br>thread（类似于js中主线程）和任务队列分别放在两个不同的线程，从而实现event<br>loop</p>
+<li><p>libuv库执行node API，将worker thread（类似于js中主线程）和任务队列分别放在两个不同的线程，从而实现event loop</p>
 </li>
 <li><p>V8将执行结果返回给用户</p>
 </li>
 </ol>
+<h4 id="nodejs中的事件环"><a href="#nodejs中的事件环" class="headerlink" title="nodejs中的事件环"></a>nodejs中的事件环</h4><p>nodejs中将eventloop分成了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timers: 定时器setTimeout执行，将callback加入队列中。</span><br><span class="line">pending callbacks: 一些I/O的callback，推迟到下一次循环中执行。</span><br><span class="line">idle, prepare: 内部的一些事件。</span><br><span class="line">poll: 定时器的callback执行，setImmediate执行，微任务执行。</span><br><span class="line">check: setImmediate的callback执行。</span><br><span class="line">close callbacks: 一些callbacks的关闭，如socket。</span><br></pre></td></tr></table></figure></p>
+<p>这里我们专注于timers、poll和check这三个阶段。其他的我们用的不多。</p>
+<ol>
+<li>timers</li>
+</ol>
+<p>这个阶段，只执行setTimeout和setInterval，但是他们的callback不会执行，而是推到宏任务的队列之中。</p>
+<ol start="2">
+<li>poll</li>
+</ol>
+<p>这个阶段，会先执行符合条件的微任务，比如Promise的异步完成，如果是setImmediate，则只会执行，不执行他的callback，然后执行定时器的callback，比如timeout。这里会适当得暂停一会，看看会不会有新任务进入队列。如果有setImmediate的callback则进入check 阶段，否则回到timer继续新一轮循环。</p>
+<ol start="3">
+<li>check</li>
+</ol>
+<p>当poll阶段的队列完成，则会轮到check，这时会执行setImmediate的callback。如果没有需要关闭callbacks，那么就回到timer继续新一轮的循环</p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包是 JavaScript一个非常重要的特性，这意味着当前作用域总是能够访问外部作用域中的变量。因为 函数是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
 <h5 id="模拟私有变量："><a href="#模拟私有变量：" class="headerlink" title="模拟私有变量："></a>模拟私有变量：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Counter(start) &#123;</span><br><span class="line"></span><br><span class="line">var count = start;</span><br><span class="line"></span><br><span class="line">return &#123;</span><br><span class="line"></span><br><span class="line">increment: function() &#123;</span><br><span class="line"></span><br><span class="line">count++;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">get: function() &#123;</span><br><span class="line"></span><br><span class="line">return count;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var foo = Counter(4);</span><br><span class="line"></span><br><span class="line">foo.increment();</span><br><span class="line"></span><br><span class="line">foo.get(); // 5</span><br></pre></td></tr></table></figure>
 <p>这里，Counter 函数返回两个闭包，函数 increment 和函数 get。 这两个函数都维持着<br>对外部作用域 Counter 的引用，因此总可以访问此作用域内定义的变量<br>count.此时的foo是对象，采取的是引用传递。</p>
@@ -523,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS运行机制"><span class="nav-number">1.</span> <span class="nav-text">JS运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟私有变量："><span class="nav-number">2.0.1.</span> <span class="nav-text">模拟私有变量：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS运行机制"><span class="nav-number">1.</span> <span class="nav-text">JS运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs的Event-loop"><span class="nav-number">2.</span> <span class="nav-text">Nodejs的Event loop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nodejs中的事件环"><span class="nav-number">2.1.</span> <span class="nav-text">nodejs中的事件环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟私有变量："><span class="nav-number">3.0.1.</span> <span class="nav-text">模拟私有变量：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

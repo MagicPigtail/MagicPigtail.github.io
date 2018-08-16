@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
+<meta name="description" content="设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。 单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js设计模式">
 <meta property="og:url" content="http://yoursite.com/2017/05/14/js设计模式/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
-<meta property="og:description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
+<meta property="og:description" content="设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。 单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T09:46:11.776Z">
+<meta property="og:updated_time" content="2018-08-15T10:46:02.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js设计模式">
-<meta name="twitter:description" content="单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。  12345678910111213141516171819202122232425262728var">
+<meta name="twitter:description" content="设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。 单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一">
 
 
 
@@ -309,7 +309,8 @@
       
 
       
-        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:</p>
+        <p>设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。</p>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:</p>
 <ol>
 <li>某个类只能有一个实例；</li>
 <li>它必须自行创建这个实例；</li>
@@ -318,14 +319,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var singleton = (function()&#123;</span><br><span class="line">    var instance;</span><br><span class="line">    function init()&#123;</span><br><span class="line">      function privateMethod()&#123;</span><br><span class="line">        console.log(&apos;privateMethod&apos;);</span><br><span class="line">      &#125;</span><br><span class="line">      var privateVar = &apos;privateVar&apos;;</span><br><span class="line">      return &#123;</span><br><span class="line">        publicMethod : function() &#123;</span><br><span class="line">          console.log(&apos;publicMethod&apos;);</span><br><span class="line">        &#125;,</span><br><span class="line">        publicVar : &apos;publicVar&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        getInstance : function () &#123;</span><br><span class="line">          if(!instance)&#123;</span><br><span class="line">            instance = init();</span><br><span class="line">          &#125;</span><br><span class="line">          return instance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">var n1 = singleton.getInstance();</span><br><span class="line">var n2 = singleton.getInstance();</span><br><span class="line">console.log(n1 === n2)        //true</span><br></pre></td></tr></table></figure>
 <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式即定义一系列的算法，把它们一个一个封装起来。将算法的使用与算法的实现分离开来。<br>javascript的策略模式很简单，把算法直接定义成函数即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">!(function () &#123;</span><br><span class="line">    //定义算法方法</span><br><span class="line">    var strategies = &#123;</span><br><span class="line">        &quot;S&quot;:function(salary)&#123;</span><br><span class="line">          return salary * 4;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;A&quot;:function(salary)&#123;</span><br><span class="line">            return salary * 3;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;B&quot;:function(salary)&#123;</span><br><span class="line">            return salary * 2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    //执行算法</span><br><span class="line">    var calculateBouns = function(level,salary)&#123;</span><br><span class="line">      return strategies[level](salary);</span><br><span class="line">    &#125;;</span><br><span class="line">    console.log(calculateBouns(&apos;S&apos;,2000));</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<h4 id="策略模式的优点"><a href="#策略模式的优点" class="headerlink" title="策略模式的优点"></a>策略模式的优点</h4><ol>
+<h3 id="策略模式的优点"><a href="#策略模式的优点" class="headerlink" title="策略模式的优点"></a>策略模式的优点</h3><ol>
 <li>有效的避免许多重复的复制粘贴作业。</li>
 <li>开闭原则的完美支持，算法完全独立易于切换、理解、拓展。</li>
 <li>算法复用性强</li>
-<li><p>使用组合和委托让Validator类拥有执行算法的能力，也是继承的一种轻便替代方式</p>
-<h4 id="策略模式的缺点"><a href="#策略模式的缺点" class="headerlink" title="策略模式的缺点"></a>策略模式的缺点</h4></li>
-<li><p>增加许多策略类或策略对象。</p>
-</li>
+<li>使用组合和委托让Validator类拥有执行算法的能力，也是继承的一种轻便替代方式</li>
+</ol>
+<h3 id="策略模式的缺点"><a href="#策略模式的缺点" class="headerlink" title="策略模式的缺点"></a>策略模式的缺点</h3><ol>
+<li>增加许多策略类或策略对象。</li>
 <li>将strategy暴露给客户所有实现</li>
 </ol>
 <h3 id="策略模式使用场景"><a href="#策略模式使用场景" class="headerlink" title="策略模式使用场景"></a>策略模式使用场景</h3><ol>
@@ -333,6 +334,7 @@
 <li>需要安全地封装多种同一类型的操作时； </li>
 <li>出现同一抽象类有多个子类，而又需要使用 if-else 或者 switch-case 来选择具体子类时。</li>
 </ol>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>观察者模式中存在两种角色：观察者（observer）和被观察者(subject)，</p>
 
       
     </div>
@@ -496,7 +498,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式的优点"><span class="nav-number">2.0.1.</span> <span class="nav-text">策略模式的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式的缺点"><span class="nav-number">2.0.2.</span> <span class="nav-text">策略模式的缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式使用场景"><span class="nav-number">2.1.</span> <span class="nav-text">策略模式使用场景</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的优点"><span class="nav-number">2.1.</span> <span class="nav-text">策略模式的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的缺点"><span class="nav-number">2.2.</span> <span class="nav-text">策略模式的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式使用场景"><span class="nav-number">2.3.</span> <span class="nav-text">策略模式使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式</span></a></li></ol></div>
             
 
           </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta name="description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 Reactreact检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，">
 <meta name="keywords" content="mvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react填坑记">
-<meta property="og:url" content="http://yoursite.com/2018/08/14/react填坑记/index.html">
+<meta property="og:title" content="react小记">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/react小记/index.html">
 <meta property="og:site_name" content="yangz&#39;s world">
-<meta property="og:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta property="og:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 Reactreact检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T08:51:27.154Z">
+<meta property="og:updated_time" content="2018-08-16T09:12:39.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react填坑记">
-<meta name="twitter:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 react检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对">
+<meta name="twitter:title" content="react小记">
+<meta name="twitter:description" content="这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。 Reactreact检测不到数据改变react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/14/react填坑记/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/14/react小记/"/>
 
 
 
 
 
-  <title>react填坑记 | yangz's world</title>
+  <title>react小记 | yangz's world</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/react填坑记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/react小记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="神奇的小辫子">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react填坑记</h1>
+          <h1 class="post-title" itemprop="name headline">react小记</h1>
         
 
         <div class="post-meta">
@@ -311,13 +311,20 @@
 
       
         <p>这篇是对于利用react、redux、dva、antd Pro等开发的经验总结。为了在以后遇到各种各样的问题时可以回头看看，借鉴一下。</p>
-<h3 id="react检测不到数据改变"><a href="#react检测不到数据改变" class="headerlink" title="react检测不到数据改变"></a>react检测不到数据改变</h3><p>react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对真实dom的渲染只限于依赖数据改变的地方。但在有些情况下react检测不到数据的改变。</p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="react检测不到数据改变"><a href="#react检测不到数据改变" class="headerlink" title="react检测不到数据改变"></a>react检测不到数据改变</h3><p>react是通过diff算法和虚拟dom来减少对真实dom的操作，从而提高渲染效率，当视图层依赖的数据发生改变时，通过diff算法，将调整页面的事件放在一个队列中，当所有数据改变计算完成后，执行事件队列中的事件，改变虚拟dom，而实际上对真实dom的渲染只限于依赖数据改变的地方。但在有些情况下react检测不到数据的改变。</p>
 <p>例如当一个试图依赖的数据是一个存在于JSON对象中<strong>嵌套较深</strong>的一个属性时，而且这个数据是个<strong>数组</strong>，当我们对这个数组进行<strong>浅拷贝</strong>(如push,shift等方法)改变它的值时，页面不会触发重新渲染，原因是<strong>该Array对象是一个引用类型，浅拷贝不会改变其指针，当嵌套较深时指针不变react默认其值未发生变化</strong>，若想要触发重新渲染，需要对其值进行深拷贝，调用slice,concat方法或重新新建一个对象将原始对象进行赋值传递属性给它即可。</p>
-<h3 id="reducers返回的newState必须用扩展符"><a href="#reducers返回的newState必须用扩展符" class="headerlink" title="reducers返回的newState必须用扩展符"></a>reducers返回的newState必须用扩展符</h3><p>reducers中的reducer函数都是纯函数，所以每次都要重新声明一个对象newState将老的state中属性拷贝过来，虽然state和newState都是一个json对象，但返回时不能直接<code>return newState</code>，否则会报错，必须要用扩展符<code>...</code>将其转化一遍再用大括号<code>{}</code>包裹起来：<code>return {...newState}</code></p>
+<p>不管时存储在model中全局store里的数据还是组件内部的state中的数据，react对数据检测的方案是一样的，因为store本质上即一个顶层组件的state，但在model中对其的改变都存在于reducer中，我们是通过声明一个新的state，然后将老的state通过扩展符<code>{...state}</code>的方式深拷贝给新的state，而在组件内部的state里我们应该用<em>setState</em>的方法对其赋值而不是通过显示赋值。</p>
 <h3 id="运用箭头函数"><a href="#运用箭头函数" class="headerlink" title="运用箭头函数"></a>运用箭头函数</h3><p>react的每一个组件都是一个类，而<code>render</code>出来的html需要绑定该类中的一些方法，这些方法有时候会用到全局<code>store</code>中的值或者要<code>dispatch</code>一个<code>action</code>，这个时候必须要拿到当前对象即<code>this</code>，如果直接用函数声明的方法，则必须要再<code>constructor</code>里将每个函数用bind方法改变作用域，但如果用箭头函数的函数表达式方法声明，因为箭头函数的<code>this</code>始终是函数定义时绑定，所以可以避免在<code>constructor</code>里依次<code>bind</code>的冗余操作。</p>
 <p>这里的箭头函数的this在定义时绑定指的是箭头函数的this永远指向父级的上下文。而普通函数的this指向的时调用它的对象。</p>
 <h3 id="setState-是异步的"><a href="#setState-是异步的" class="headerlink" title="setState()是异步的"></a>setState()是异步的</h3><p>this.setState()会调用render方法，但并不会立即改变state的值，state是在render方法中赋值的。所以执行this.setState()后立即获取state的值是不变的。同样的直接赋值state并不会触发更新，因为没有调用render函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;value: this.state.value + 1&#125;)</span><br><span class="line">console.log(this.state.value)</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">    this.setState(&#123;value: this.state.value + 1&#125;)</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">&#125;, 10);</span><br><span class="line">render()&#123;</span><br><span class="line">    console.log(this.state.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>原始value为1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-----&gt; 1</span><br><span class="line">-----&gt; 2</span><br><span class="line">-----&gt; 2</span><br><span class="line">-----&gt; 3</span><br><span class="line">-----&gt; 3</span><br><span class="line">执行顺序为2-&gt;1-&gt;9-&gt;4-&gt;5-&gt;9-&gt;6</span><br><span class="line">第一个loop：2-&gt;1-&gt;9</span><br><span class="line">第二个loop：4-&gt;5-&gt;9-&gt;6</span><br></pre></td></tr></table></figure></p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><h3 id="数据存放方案"><a href="#数据存放方案" class="headerlink" title="数据存放方案"></a>数据存放方案</h3><p>全局store的存在给我们处理组件间通信提供了便捷，但我们不应该把所有数据放在它里面，原因是我们应该尽可能使组件间解耦。<br>当一个页面功能为纯展示页面，且依赖的数据量不是非常庞大时，我们可以考虑将该页面的数据存储在全局store中，如此一来，当页面路由跳转时，该数据不会被清理掉，当其他页面需要这些数据时不用再向后台请求，可以直接在store中拿到。</p>
+<p>总结：以下几种情况可以考虑存储在全局store中</p>
+<ol>
+<li>当一个数据同时被几个组件所依赖</li>
+<li>从后台请求过来的数据</li>
+<li>该数据用来纯展示，但展示条件会经常变化，且数据量不是特别庞大，变化较稳定</li>
+</ol>
 
       
     </div>
@@ -483,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#react检测不到数据改变"><span class="nav-number">1.</span> <span class="nav-text">react检测不到数据改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducers返回的newState必须用扩展符"><span class="nav-number">2.</span> <span class="nav-text">reducers返回的newState必须用扩展符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用箭头函数"><span class="nav-number">3.</span> <span class="nav-text">运用箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState-是异步的"><span class="nav-number">4.</span> <span class="nav-text">setState()是异步的</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#react检测不到数据改变"><span class="nav-number">1.1.</span> <span class="nav-text">react检测不到数据改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用箭头函数"><span class="nav-number">1.2.</span> <span class="nav-text">运用箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState-是异步的"><span class="nav-number">1.3.</span> <span class="nav-text">setState()是异步的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">2.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据存放方案"><span class="nav-number">2.1.</span> <span class="nav-text">数据存放方案</span></a></li></ol></li></ol></div>
             
 
           </div>
