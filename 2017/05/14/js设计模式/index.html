@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="yangz&#39;s world">
 <meta property="og:description" content="设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。 单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-15T10:46:02.168Z">
+<meta property="og:updated_time" content="2018-08-17T03:35:46.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js设计模式">
 <meta name="twitter:description" content="设计模式是一条长远的路，但千里之行始于足下，在这里将常用的一些设计模式记下来，之后结合实践时回头看看，相信会有新的感悟和收获。 单例模式单例就是保证一个类仅有一个实例，并提供一个访问它的全局访问点。单例模式的要点有三个:  某个类只能有一个实例； 它必须自行创建这个实例； 它必须自行向整个系统提供这个实例。实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一">
@@ -334,7 +334,9 @@
 <li>需要安全地封装多种同一类型的操作时； </li>
 <li>出现同一抽象类有多个子类，而又需要使用 if-else 或者 switch-case 来选择具体子类时。</li>
 </ol>
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>观察者模式中存在两种角色：观察者（observer）和被观察者(subject)，</p>
+<h2 id="观察者及订阅-发布模式"><a href="#观察者及订阅-发布模式" class="headerlink" title="观察者及订阅/发布模式"></a>观察者及订阅/发布模式</h2><p>很多地方把观察者模式于订阅/发布模式划上了等号，我阅读了相关的一些文章后，将其理解为这两种模式的思想是一致的，而订阅/发布模式只比观察者模式多了一层消息处理，及发布者发布的消息经过处理后再被订阅者收到。<br>观察者模式中存在两种角色：观察者（observer）和被观察者(subject)。而事件的发起来源于被观察者的状态改变，subject有一个属性记录所有跟它有观察关系的observer–observerList，在subject的状态变化时，及在它的observerList中遍历每一个observer，然后调用其方法。<br>相对于订阅/发布模式，观察者模式很直接的绑定被观察者的状态，中间没有经过数据加工。<br>典型事例：addEventListener。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>不管时观察者还是订阅发布模式都降低了事件的发起对象与事件的处理对象之间的耦合性。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>创建订阅者需要消耗一定的时间和内存</p>
 
       
     </div>
@@ -452,7 +454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -498,7 +500,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的优点"><span class="nav-number">2.1.</span> <span class="nav-text">策略模式的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的缺点"><span class="nav-number">2.2.</span> <span class="nav-text">策略模式的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式使用场景"><span class="nav-number">2.3.</span> <span class="nav-text">策略模式使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.</span> <span class="nav-text">观察者模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的优点"><span class="nav-number">2.1.</span> <span class="nav-text">策略模式的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式的缺点"><span class="nav-number">2.2.</span> <span class="nav-text">策略模式的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式使用场景"><span class="nav-number">2.3.</span> <span class="nav-text">策略模式使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者及订阅-发布模式"><span class="nav-number">3.</span> <span class="nav-text">观察者及订阅/发布模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
