@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="yangz&#39;s world">
 <meta property="og:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T07:52:09.351Z">
+<meta property="og:updated_time" content="2018-08-28T06:29:30.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js little tip">
 <meta name="twitter:description" content="JS运行机制基于js的使用场景，它的产生背景是为了在页面与用户交互以及操作Dom，所以设计为一门浏览器的脚本语言，如果是多线程，则在同一时间对同一dom进行操作则无法判断。 js为单线程运行，但在实际操作中会遇到各种异步操作，例如向后台请求数据等等，js实现异步的方法如下：  为主线程中的异步任务添加一个回调函数  主线程继续执行下一个任务  当异步操作有结果时将其对应的回调函数放入一个任务队列中">
@@ -377,6 +377,8 @@
 <p>外部的匿名函数会立即执行，并把 i 作为它的参数，此时函数内 e 变量就拥有了 i<br>的一个拷贝。</p>
 <p>当传递给 setTimeout 的匿名函数执行时，它就拥有了对 e<br>的引用，而这个值是不会被循环改变的。</p>
 <p>有另一个方法完成同样的工作，那就是从匿名包装器中返回一个函数。这和上面的代码效果一样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line"></span><br><span class="line">setTimeout((function(e) &#123;</span><br><span class="line"></span><br><span class="line">return function() &#123;</span><br><span class="line"></span><br><span class="line">console.log(e);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;)(i), 1000)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>在es6中通过const和let关键字引入了块级作用域，但是在用法上也需要注意一些问题。</p>
+<h5 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h5><p>在块级作用域内只要存在<code>let</code>/<code>const</code>命令，它所声明的变量就”绑定”了这个区域，不再受外部的影响，但<code>let</code>和<code>const</code>是<strong>不存在变量提升的</strong>，因此在代码块内，使用这些命令声明变量前，变量是不可用的。这在语法上称为“暂时性死区”。<br>同时以<code>let</code>和<code>const</code>声明的变量都不可以重复声明。</p>
 
       
     </div>
@@ -500,7 +502,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,7 +515,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -546,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS运行机制"><span class="nav-number">1.</span> <span class="nav-text">JS运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs的Event-loop"><span class="nav-number">2.</span> <span class="nav-text">Nodejs的Event loop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nodejs中的事件环"><span class="nav-number">2.1.</span> <span class="nav-text">nodejs中的事件环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟私有变量："><span class="nav-number">3.0.1.</span> <span class="nav-text">模拟私有变量：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS运行机制"><span class="nav-number">1.</span> <span class="nav-text">JS运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs的Event-loop"><span class="nav-number">2.</span> <span class="nav-text">Nodejs的Event loop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nodejs中的事件环"><span class="nav-number">2.1.</span> <span class="nav-text">nodejs中的事件环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟私有变量："><span class="nav-number">3.0.1.</span> <span class="nav-text">模拟私有变量：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域"><span class="nav-number">4.</span> <span class="nav-text">块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#暂时性死区"><span class="nav-number">4.0.1.</span> <span class="nav-text">暂时性死区</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
